@@ -25,18 +25,48 @@ function WebcamAscii({ mediaStream, editor, onFps }: {
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
-    v.srcObject    = mediaStream;
-    v.muted        = true;
-    v.playsInline  = true;
-    const onReady = () => { if (v.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) setSource(v); };
+    v.srcObject   = mediaStream;
+    v.muted       = true;
+    v.playsInline = true;
+
+    const onReady = () => {
+      if (v.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) setSource(v);
+    };
+
+    // Resume playback after any stall/suspend/pause (e.g. tab backgrounded,
+    // GPU throttle, or camera driver hiccup).
+    const tryPlay = () => {
+      void v.play().then(onReady).catch(() => {});
+    };
+
     v.addEventListener("loadedmetadata", onReady);
-    v.addEventListener("canplay", onReady);
-    v.addEventListener("playing", onReady);
+    v.addEventListener("canplay",        onReady);
+    v.addEventListener("playing",        onReady);
+    v.addEventListener("stalled",        tryPlay);
+    v.addEventListener("suspend",        tryPlay);
+    v.addEventListener("pause",          tryPlay);
+
     void v.play().then(onReady).catch(() => setSource(null));
+
+    // Watchdog: if currentTime stops advancing for 2 s, the stream has
+    // silently stalled — retry play() to wake it up.
+    let lastTime = -1;
+    const watchdog = window.setInterval(() => {
+      if (v.paused || v.ended) { tryPlay(); return; }
+      if (v.currentTime === lastTime) {
+        tryPlay();
+      }
+      lastTime = v.currentTime;
+    }, 2000);
+
     return () => {
+      clearInterval(watchdog);
       v.removeEventListener("loadedmetadata", onReady);
-      v.removeEventListener("canplay", onReady);
-      v.removeEventListener("playing", onReady);
+      v.removeEventListener("canplay",        onReady);
+      v.removeEventListener("playing",        onReady);
+      v.removeEventListener("stalled",        tryPlay);
+      v.removeEventListener("suspend",        tryPlay);
+      v.removeEventListener("pause",          tryPlay);
       v.pause();
       v.srcObject = null;
       setSource(null);
