@@ -193,7 +193,7 @@ export function Sidebar({
   const fileRef = useRef<HTMLInputElement>(null);
 
   const handleFile = (file: File) => {
-    if (file.size > 1_048_576) {
+    if (file.size > 52_428_800) {
       onFileUpload("", "__ERROR__1MB limit exceeded");
       return;
     }
@@ -297,7 +297,7 @@ export function Sidebar({
                 {uploadedFilename ?? "Drop image/video or click to browse"}
               </span>
               <span style={{ fontFamily:"DM Mono, monospace", fontSize:9, color:uploadError?"#ff4444":"#444", letterSpacing:"0.04em" }}>
-                {uploadError ?? "JPG, PNG, GIF, MP4, WebM · Max 1 MB"}
+                {uploadError ?? "JPG, PNG, GIF, MP4, WebM · Max 50 MB"}
               </span>
             </div>
             <input ref={fileRef} type="file" accept="image/*,video/*" style={{ display:"none" }} onChange={handleFileInput} />
