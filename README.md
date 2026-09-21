@@ -2,7 +2,7 @@
 
 ASC11-inspired real-time ASCII art editor for image, video, and live webcam feeds, built with React, TypeScript, Vite, and HTML5 Canvas.
 
-Inspired by [asc11.com](https://asc11.com), this application transforms static images, videos, and live webcam feeds into stylized text, braille, halftone, and vector line art in real time.
+This application transforms static images, videos, and live webcam feeds into stylized text, braille, halftone, and vector line art in real time.
 
 ---
 
