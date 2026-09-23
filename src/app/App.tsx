@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, Component, ReactNode } from "react";
-import portraitSource from "figma:asset/IMG_20260514_210558.jpg";
 import { Sidebar, CHAR_SETS } from "./components/Sidebar";
 import type { EditorState } from "./components/Sidebar";
 import { PreviewCanvas } from "./components/PreviewCanvas";
@@ -73,8 +72,8 @@ const defaultEditor: EditorState = {
 // Grid quality has a single source of truth: editor.quality (see AsciiCanvas).
 export default function App() {
   const [editor, setEditor] = useState<EditorState>(defaultEditor);
-  const [uploadedImageUrl, setUploadedImageUrl]     = useState<string | null>(portraitSource);
-  const [uploadedFilename, setUploadedFilename]     = useState<string | null>("IMG_20260514_210558.jpg");
+  const [uploadedImageUrl, setUploadedImageUrl]     = useState<string | null>(null);
+  const [uploadedFilename, setUploadedFilename]     = useState<string | null>(null);
   const [uploadError, setUploadError]               = useState<string | null>(null);
   const [mediaStream, setMediaStream]               = useState<MediaStream | null>(null);
   const [webcamActive, setWebcamActive]             = useState(false);
