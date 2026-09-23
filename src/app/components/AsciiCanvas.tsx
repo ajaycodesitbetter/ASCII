@@ -291,10 +291,29 @@ function renderFrame(
   if (!source || (source instanceof HTMLVideoElement && source.readyState < 2)) {
     ctx.fillStyle = "#000";
     ctx.fillRect(0, 0, W, H);
-    ctx.fillStyle = "#333";
-    ctx.font = `${11 * dpr}px 'DM Mono', monospace`;
+    ctx.fillStyle = "#555";
+    ctx.font = `${14 * dpr}px 'DM Mono', monospace`;
     ctx.textAlign = "center";
-    ctx.fillText("Upload an image or enable webcam", W / 2, H / 2);
+    
+    const lines = [
+      "WELCOME TO ASCII EDITOR",
+      "",
+      "• Drag & Drop an image/video to start",
+      "• Or select LIVE CAM in the source panel",
+      "• Use the sidebar to tweak Art Style, Font & Color",
+      "• Try different FX Presets",
+      "• Hit 'E' or use the EXPORT button to save",
+    ];
+
+    const lineHeight = 24 * dpr;
+    const startY = H / 2 - (lines.length * lineHeight) / 2;
+
+    lines.forEach((line, i) => {
+      ctx.fillStyle = i === 0 ? "#C8B400" : "#888";
+      ctx.font = i === 0 ? `bold ${16 * dpr}px 'DM Mono', monospace` : `${13 * dpr}px 'DM Mono', monospace`;
+      ctx.fillText(line, W / 2, startY + i * lineHeight);
+    });
+    
     ctx.textAlign = "left";
     return;
   }

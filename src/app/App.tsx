@@ -176,7 +176,7 @@ export default function App() {
   // ── Header source label ───────────────────────────────────────────────────────
   const sourceLabel = editor.sourceTab === "LIVE CAM"
     ? "LIVE CAMERA"
-    : uploadedFilename ?? "PORTRAIT SOURCE";
+    : uploadedFilename ?? "NO SOURCE";
 
   const fpsColor = fpsDisplay >= 50 ? "#85bf90" : fpsDisplay >= 30 ? "#d8b761" : "#d87b61";
 

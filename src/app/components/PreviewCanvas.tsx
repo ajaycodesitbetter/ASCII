@@ -1,9 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { AsciiCanvas } from "./AsciiCanvas";
 import type { EditorState } from "./Sidebar";
-import userPortraitSrc from "figma:asset/IMG_20260514_210558.jpg";
-
-export { userPortraitSrc };
 
 // ─── Props ────────────────────────────────────────────────────────────────────
 interface PreviewCanvasProps {
@@ -91,8 +88,8 @@ export function PreviewCanvas({ editor, uploadedImageUrl, mediaStream, onFps }: 
 
   const [imgEl, setImgEl] = useState<HTMLImageElement | null>(null);
 
-  // Use bundled portrait if no upload yet
-  const effectiveUrl = uploadedImageUrl ?? userPortraitSrc;
+  // No fallback image, wait for upload
+  const effectiveUrl = uploadedImageUrl;
 
   useEffect(() => {
     if (mode === "webcam") { setImgEl(null); return; }
