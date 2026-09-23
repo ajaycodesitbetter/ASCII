@@ -3,13 +3,156 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ASC11 — ASCII Art &amp; Model Viewer</title>
-    <meta name="description" content="Real-time ASC11-inspired ASCII art generator, 3D model viewer, and visual editor built with React and HTML5 Canvas." />
+
+    <!-- ── Primary SEO ───────────────────────────────────────────────────── -->
+    <title>ASC11 — Free Online ASCII Art Editor | Image, Video &amp; Webcam</title>
+    <meta name="description" content="Convert any image, video, or live webcam into real-time ASCII art for free. 9 art styles, dithering algorithms, FX presets, and instant PNG export. No signup required." />
+    <meta name="keywords" content="ascii art generator, ascii art editor, image to ascii, video to ascii, webcam ascii, real-time ascii, braille art, halftone art, ascii converter online, free ascii art tool" />
+    <meta name="author" content="Ajay" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://ascii-ajaycodesitbetter.vercel.app/" />
+
+    <!-- ── Open Graph (Facebook, LinkedIn, Discord previews) ────────────── -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://ascii-ajaycodesitbetter.vercel.app/" />
+    <meta property="og:title" content="ASC11 — Free Real-Time ASCII Art Editor" />
+    <meta property="og:description" content="Turn any image, video, or live webcam into stunning ASCII art instantly. Free, browser-based, no signup. 9 art styles including Braille, Halftone, Matrix Rain &amp; more." />
+    <meta property="og:image" content="https://ascii-ajaycodesitbetter.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="ASC11 ASCII Art Editor — real-time image to ASCII conversion" />
+    <meta property="og:site_name" content="ASC11 ASCII Editor" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- ── Twitter / X Card ─────────────────────────────────────────────── -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://ascii-ajaycodesitbetter.vercel.app/" />
+    <meta name="twitter:title" content="ASC11 — Free Real-Time ASCII Art Editor" />
+    <meta name="twitter:description" content="Convert images, videos &amp; live webcam to ASCII art in real time. Free. No signup. 9 styles." />
+    <meta name="twitter:image" content="https://ascii-ajaycodesitbetter.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="ASC11 ASCII Art Editor interface" />
+
+    <!-- ── Theme / favicon ──────────────────────────────────────────────── -->
     <meta name="theme-color" content="#000000" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='68' font-family='monospace' font-weight='bold' font-size='52' fill='%2300ff41' text-anchor='middle'>&gt;_</text></svg>" />
+
+    <!-- ── Performance: preconnect to Google Fonts ───────────────────────── -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- ── JSON-LD Structured Data: SoftwareApplication (Google Rich Results) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      "name": "ASC11 ASCII Art Editor",
+      "alternateName": "ASC11",
+      "url": "https://ascii-ajaycodesitbetter.vercel.app/",
+      "applicationCategory": "MultimediaApplication",
+      "operatingSystem": "Web Browser",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "description": "Real-time ASCII art editor that converts images, videos, and live webcam feeds into stylized ASCII, Braille, Halftone, and vector line art. Includes 9 art styles, Floyd-Steinberg dithering, procedural FX, and PNG export.",
+      "featureList": [
+        "Real-time image to ASCII conversion",
+        "Live webcam ASCII art",
+        "Video to ASCII art",
+        "9 art styles including Classic ASCII, Braille, Halftone",
+        "Floyd-Steinberg, Bayer, and Atkinson dithering",
+        "Procedural FX: CRT Monitor, Matrix Rain, Glitch, Beam Sweep",
+        "Color modes: Grayscale, Full Color, Matrix Green, Amber Monitor",
+        "PNG export",
+        "No signup required"
+      ],
+      "screenshot": "https://ascii-ajaycodesitbetter.vercel.app/og-image.png",
+      "softwareVersion": "1.0.0",
+      "creator": {
+        "@type": "Person",
+        "name": "Ajay"
+      }
+    }
+    </script>
+
+    <!-- ── JSON-LD Structured Data: FAQPage (AEO — AI engine citations) ─── -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ASC11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASC11 is a free, browser-based ASCII art editor that converts images, videos, and live webcam feeds into real-time ASCII art. It supports 9 art styles including Classic ASCII, Braille, Halftone, and Dot Cross, and requires no download or signup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I convert an image to ASCII art?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "To convert an image to ASCII art using ASC11: open the editor, drag and drop your image (JPG, PNG, or GIF up to 50 MB) into the drop zone, then use the sidebar to select your preferred art style, color mode, and dithering algorithm. The canvas updates in real time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I use my webcam to create live ASCII art?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Click the LIVE CAM tab in the source panel and grant camera permission. ASC11 will render your webcam feed as live ASCII art in real time, with all art styles, FX presets, and color modes available."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What video formats does ASC11 support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASC11 supports MP4 and WebM video files up to 50 MB. After uploading, the video plays in a loop and each frame is rendered as ASCII art in real time."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I export my ASCII art?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Click the EXPORT button in the top-right corner (or press Ctrl+E / Cmd+E) to download a high-resolution PNG snapshot of your current ASCII art canvas."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ASC11 free to use?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, ASC11 is completely free. It runs entirely in your browser with no account, subscription, or download required."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What art styles are available in ASC11?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASC11 offers 9 art styles: Classic ASCII (luminance-mapped character ramp), Braille (high-resolution Unicode dot patterns), Halftone (dynamic brightness-scaled circles), Dot Cross (5-level symbolic quantization), Line (Sobel edge detection with directional glyphs), Particles (stippling), Claude Code (binary matrix), Retro Art (6-level posterized ramp), and Terminal (high-contrast console ramp)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What dithering algorithms does ASC11 support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "ASC11 supports four dithering algorithms: Floyd-Steinberg (error-diffusion), Bayer 4×4 Ordered, Atkinson, and None. These control how brightness transitions are rendered across adjacent ASCII characters."
+          }
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
+
