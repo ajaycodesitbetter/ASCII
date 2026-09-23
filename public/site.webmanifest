@@ -1,0 +1,9 @@
+{
+  "name": "ASC11 — Real-Time ASCII Art Editor",
+  "short_name": "ASC11",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "description": "Convert images, videos, and live webcam feeds into real-time ASCII, Braille, and Halftone art."
+}

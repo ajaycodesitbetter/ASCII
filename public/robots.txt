@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://ascii-ajaycodesitbetter.vercel.app/sitemap.xml
+Sitemap: https://ascii.ajaymathuriya.com/sitemap.xml
